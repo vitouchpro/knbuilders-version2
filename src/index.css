@@ -1,0 +1,897 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  html,
+  body,
+  #root {
+    width: 100%;
+    min-width: 100%;
+  }
+  body {
+    @apply bg-cream font-sans text-navy antialiased;
+  }
+}
+
+@layer components {
+  .container-px {
+    @apply mx-auto w-full max-w-[1200px] px-5 sm:px-6 lg:px-8;
+  }
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-orange;
+  }
+  .eyebrow::before {
+    content: '';
+    @apply inline-block h-px w-6 bg-orange;
+  }
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-full bg-orange px-6 py-3 text-sm font-semibold text-white transition hover:bg-orange-light hover:shadow-lg hover:shadow-orange/30;
+  }
+  .btn-ghost {
+    @apply inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/25 text-white transition hover:bg-white hover:text-navy;
+  }
+  .heading {
+    @apply font-display font-extrabold leading-tight;
+  }
+}
+
+.contact-info-panel p {
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.service-card-image {
+  min-height: 12rem;
+}
+
+@media (min-width: 640px) {
+  .service-card-image {
+    min-height: 15.625rem;
+  }
+}
+
+/* Subtle warm-charcoal dot texture for light sections. */
+.about-why-section,
+.about-story-section {
+  background-image: radial-gradient(rgba(46, 42, 38, 0.035) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.about-why-top {
+  overflow: hidden;
+  border-radius: 28px;
+  background: #fff;
+}
+
+.about-why-top h2 {
+  font-size: clamp(1.55rem, 2.2vw, 2.6rem);
+}
+
+.about-why-top > :first-child {
+  padding: 2rem 0 2rem 2rem;
+}
+
+.about-why-hero-image {
+  overflow: hidden;
+  border: 10px solid #f26a16;
+  border-radius: 28px;
+  filter: drop-shadow(0 14px 18px rgba(46, 42, 38, 0.18));
+}
+
+@media (min-width: 480px) and (max-width: 1023px) {
+  .about-why-top {
+    grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+    gap: 0;
+  }
+
+  .about-why-top > :first-child {
+    padding: 1.25rem 0.75rem 1.25rem 1.25rem;
+  }
+
+  .about-why-top h2 {
+    font-size: clamp(1.35rem, 4vw, 2rem);
+  }
+
+  .about-why-top > :first-child p {
+    margin-top: 0.75rem;
+    font-size: 0.7rem;
+    line-height: 1.45;
+  }
+
+  .about-why-top > :first-child .btn-primary {
+    margin-top: 1rem;
+    padding: 0.6rem 0.9rem;
+    font-size: 0.65rem;
+  }
+
+  .about-why-hero-image {
+    height: 250px;
+    border-width: 6px;
+    border-radius: 24px;
+  }
+
+  .about-why-hero-image img {
+    height: 100%;
+  }
+
+}
+
+.about-why-features {
+  position: relative;
+  z-index: 2;
+  background: #fff;
+}
+
+/* Accessibility skip link: kept off-screen until it receives keyboard focus,
+   then slides down over the header. Without this base rule it renders in normal
+   flow at the top of every page. */
+.skip-link {
+  position: fixed;
+  top: 0;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0 0 0.75rem 0.75rem;
+  background: #c9591f;
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-110%);
+  transition: transform 0.2s ease-out;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+  outline: 2px solid #fff;
+  outline-offset: -4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skip-link {
+    transition: none;
+  }
+}
+
+@media (max-width: 1023px) {
+  .about-why-top {
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+    column-gap: 0;
+    row-gap: 2rem;
+  }
+
+  .about-why-top > :first-child {
+    padding: 1.25rem 0.75rem 1.25rem 1.25rem;
+  }
+
+  .about-why-top h2 {
+    font-size: clamp(1.35rem, 4vw, 2rem);
+  }
+
+  .about-why-top > :first-child p {
+    margin-top: 0.75rem;
+    font-size: 0.7rem;
+    line-height: 1.45;
+  }
+
+  .about-why-top > :first-child .btn-primary {
+    margin-top: 1rem;
+    padding: 0.6rem 0.9rem;
+    font-size: 0.65rem;
+  }
+
+  .about-why-hero-image {
+    height: 250px;
+    border-width: 6px;
+    border-radius: 18px;
+  }
+
+  .about-why-hero-image img {
+    height: 100%;
+  }
+
+  .about-why-features {
+    grid-column: 1 / -1;
+    gap: 2rem;
+    padding: 1rem 1.25rem 1.5rem;
+  }
+}
+
+@media (max-width: 639px) {
+  .about-why-top {
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+  }
+
+  .about-why-top > :first-child {
+    padding: 1.5rem 1rem 0;
+  }
+
+  .about-why-hero-image {
+    height: 260px;
+    border-width: 7px;
+    border-radius: 18px;
+  }
+
+  .about-why-features {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    padding: 1.25rem 1rem 1.5rem;
+  }
+}
+
+@media (max-width: 479px) {
+  .about-why-top > :first-child {
+    padding-top: 1.25rem;
+  }
+
+  .about-why-top h2 {
+    font-size: 2rem;
+  }
+}
+
+/* dotted pattern used on dark sections */
+.dot-grid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.testimonial-track {
+  scrollbar-width: none;
+}
+
+.testimonial-track::-webkit-scrollbar {
+  display: none;
+}
+
+.testimonial-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(201, 89, 31, 0.75);
+  box-shadow: inset 0 0 32px rgba(201, 89, 31, 0.04), 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+.project-cta {
+  min-height: 220px;
+  background-image: radial-gradient(rgba(46, 42, 38, 0.035) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+.project-cta-art {
+  position: absolute;
+  right: 1rem;
+  bottom: 0;
+  width: 48%;
+  height: 86%;
+  overflow: hidden;
+  border-radius: 28% 16% 0 0;
+  opacity: 0.9;
+}
+
+.project-cta-art img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  object-position: right bottom;
+  mix-blend-mode: multiply;
+}
+
+.project-cta-sun {
+  position: absolute;
+  top: 1.25rem;
+  right: 4rem;
+  z-index: 1;
+  height: 12rem;
+  width: 12rem;
+  border-radius: 9999px;
+  background: rgba(242, 106, 22, 0.1);
+}
+
+@media (max-width: 639px) {
+  .project-cta {
+    min-height: 410px;
+    padding-bottom: 13rem;
+  }
+
+  .project-cta-art {
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 12rem;
+    border-radius: 50% 50% 0 0;
+  }
+
+  .project-cta-sun {
+    top: -2rem;
+    right: 2rem;
+    height: 10rem;
+    width: 10rem;
+  }
+}
+
+.testimonial-quote {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.75rem;
+  color: rgba(201, 89, 31, 0.35);
+  font-family: Georgia, serif;
+  font-size: 4.5rem;
+  font-weight: 700;
+  line-height: 0.7;
+}
+
+.testimonial-accent {
+  position: absolute;
+  right: 1.75rem;
+  bottom: 1rem;
+  width: 7rem;
+  height: 3px;
+  background: #c9591f;
+  box-shadow: 0 0 12px rgba(201, 89, 31, 0.7);
+}
+
+/* ---- Testimonial slider ---------------------------------------------------
+   One slide visible at a time on small screens, two on wide ones. The rail is
+   translated by whole slides; the viewport clips it. Overflow is visible-safe
+   because each card carries its own rounded background. */
+.testimonial-viewport {
+  overflow: hidden;
+  /* The active card lifts and casts a soft shadow, so the box needs slack
+     vertically or the glow is clipped. Horizontally it must NOT: padding on
+     the inline axis let the neighbouring slides render inside the box, so a
+     sliver of the previous and next card always bled past the edges. Clip
+     flush on the sides, breathe on the top and bottom. */
+  margin-block: -0.75rem;
+  padding-block: 0.75rem;
+}
+
+.testimonial-rail {
+  display: flex;
+  align-items: stretch;   /* cards in a row share the tallest height */
+  transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.testimonial-slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  padding-inline: 0.375rem;
+}
+
+@media (min-width: 768px) {
+  /* two-up on desktop: the rail still moves one full slide per step */
+  .testimonial-slide { flex-basis: 50%; }
+}
+
+/* the active card lifts slightly and warms its border */
+.testimonial-card {
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.6s ease, border-color 0.6s ease, opacity 0.6s ease;
+}
+
+.testimonial-card.is-active {
+  transform: translateY(-8px);
+  border-color: rgba(201, 89, 31, 1);
+  box-shadow: inset 0 0 42px rgba(201, 89, 31, 0.1), 0 22px 44px rgba(0, 0, 0, 0.26);
+}
+
+/* the quote glyph warms up on the active card */
+.testimonial-card.is-active .testimonial-quote {
+  color: rgba(201, 89, 31, 0.55);
+}
+
+/* the underline accent grows in on the active card */
+.testimonial-accent {
+  transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s ease;
+  opacity: 0.55;
+}
+.testimonial-card.is-active .testimonial-accent {
+  width: 9rem;
+  opacity: 1;
+}
+
+/* dots */
+.testimonial-dot {
+  height: 0.4rem;
+  width: 1.5rem;
+  border-radius: 9999px;
+  background: rgba(250, 246, 239, 0.28);
+  transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.45s ease;
+}
+
+.testimonial-dot:hover { background: rgba(250, 246, 239, 0.5); }
+
+.testimonial-dot.is-active {
+  width: 3rem;
+  background: #c9591f;
+  box-shadow: 0 0 14px rgba(201, 89, 31, 0.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-rail { transition: none; }
+  .testimonial-card,
+  .testimonial-card.is-active { transition: none; transform: none; }
+  .testimonial-dot { transition: none; }
+}
+
+@media (max-width: 767px) {
+  .testimonial-track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    padding-bottom: 0.5rem;
+  }
+
+  .testimonial-card {
+    flex: 0 0 min(88vw, 360px);
+    scroll-snap-align: start;
+  }
+}
+
+/* reveal-on-scroll (used by the Reveal component) */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------------- Service-area grid ----------------
+   The whole grid shares one observer, so `--i` drives a real left-to-right,
+   row-by-row cascade. Column count changes per breakpoint, so the per-card
+   step is retimed alongside it to keep the sweep reading in reading order. */
+.area-grid { --step: 42ms; }
+@media (min-width: 640px) { .area-grid { --step: 52ms; } }
+@media (min-width: 1024px) { .area-grid { --step: 60ms; } }
+
+.area-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  background: #fff;
+  padding: 1.25rem;
+  box-shadow: inset 0 0 0 1px rgba(46, 42, 38, 0.08);
+  opacity: 0;
+  transform: translateY(14px) scale(0.99);
+  transition:
+    opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease,
+    background-color 0.35s ease;
+  /* Clamp the stagger: past ~8 cards the tail lags behind the scroll. */
+  transition-delay: calc(min(var(--i), 8) * var(--step));
+  will-change: opacity, transform;
+}
+
+.area-grid.is-in .area-card {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Terracotta edge that wipes in from the left on hover — the old
+   ring-navy/8 → ring-orange/30 change was too faint to register. */
+.area-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: #c9591f;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (hover: hover) {
+  .area-card:hover {
+    box-shadow:
+      inset 0 0 0 1px rgba(201, 89, 31, 0.28),
+      0 10px 26px rgba(46, 42, 38, 0.09);
+  }
+  .area-card:hover::before { transform: scaleY(1); transform-origin: top; }
+  .area-card:hover .area-card__pin { color: #fff; background: #c9591f; transform: translateY(-1px); }
+}
+
+.area-card__title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2e2a26;
+}
+
+.area-card__pin {
+  display: grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  flex-shrink: 0;
+  border-radius: 9999px;
+  background: rgba(201, 89, 31, 0.1);
+  color: #c9591f;
+  transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+}
+
+.area-card__note {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: rgba(46, 42, 38, 0.7);
+}
+
+/* Home base — inverted card, the grid's focal point. */
+.area-card--home {
+  background: #2e2a26;
+  box-shadow: inset 0 0 0 1px rgba(46, 42, 38, 0.08);
+}
+
+.area-card--home::before { width: 4px; transform: scaleY(1); transform-origin: top; }
+
+@media (hover: hover) {
+  .area-card--home:hover { box-shadow: 0 12px 30px rgba(46, 42, 38, 0.2); }
+}
+
+.area-card__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-radius: 9999px;
+  background: rgba(201, 89, 31, 0.16);
+  padding: 0.25rem 0.6rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #e2793f;
+}
+
+.area-card__title--home { margin-top: 0.6rem; font-size: 1.125rem; color: #faf6ef; }
+.area-card__note--home { color: rgba(250, 246, 239, 0.72); max-width: 46rem; }
+
+/* ---------------- Service-area region swap ----------------
+   The heading label cross-fades in place. inline-grid stacks the label in a
+   single cell so the h2 keeps its baseline and the following words never jump
+   while the two region names (different lengths) exchange. */
+.region-swap {
+  display: inline-grid;
+  vertical-align: bottom;
+}
+
+.region-swap__label {
+  position: relative;
+  grid-area: 1 / 1;
+  animation: region-label-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Underline sweeps in just behind the text, reusing the nav-link bar so the
+   two animated underlines on the site share one visual language. It is keyed
+   off the label element, so React remounting on region change replays it. */
+.region-swap__label::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.12em;
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #c9591f, #d97334);
+  transform-origin: left center;
+  animation: region-underline-in 0.55s cubic-bezier(0.65, 0, 0.35, 1) 0.16s both;
+}
+
+@keyframes region-label-in {
+  from { opacity: 0; transform: translateY(0.35em); filter: blur(3px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+@keyframes region-underline-in {
+  from { transform: scaleX(0); opacity: 0.4; }
+  to { transform: scaleX(1); opacity: 1; }
+}
+
+.region-blurb {
+  transition: opacity 0.36s ease, transform 0.36s ease;
+}
+.region-blurb.is-out { opacity: 0; transform: translateY(-6px); }
+
+/* Region tabs */
+.region-tab {
+  border-radius: 9999px;
+  padding: 0.5rem 1.1rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: rgba(46, 42, 38, 0.62);
+  background: transparent;
+  box-shadow: inset 0 0 0 1px rgba(46, 42, 38, 0.14);
+  transition: color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.region-tab:hover { color: #c9591f; box-shadow: inset 0 0 0 1px rgba(201, 89, 31, 0.4); }
+
+.region-tab.is-active {
+  color: #faf6ef;
+  background: #c9591f;
+  box-shadow: inset 0 0 0 1px #c9591f;
+}
+
+/* Swap-out: the whole grid lifts and fades as one, then the incoming set
+   re-runs the normal per-card cascade. Delay is inverted so the cards leave
+   in the same visual direction they arrived. */
+.area-grid.is-swapping .area-card {
+  opacity: 0;
+  transform: translateY(-10px) scale(0.995);
+  transition:
+    opacity 0.3s cubic-bezier(0.4, 0, 1, 1),
+    transform 0.3s cubic-bezier(0.4, 0, 1, 1);
+  /* Leave nearly together — a long staggered exit just delays the incoming
+     set and makes the section feel slow. */
+  transition-delay: calc(min(var(--i), 6) * 14ms);
+}
+
+/* ---------------- Region tab countdown ----------------
+   A hairline under the active tab that drains over one rotation, so the swap
+   is announced rather than simply happening. Removed from the DOM whenever
+   rotation stops (hover, reduced motion, manual pick), so it never shows a
+   countdown for something that is not going to fire. */
+.region-tab { position: relative; overflow: hidden; }
+.region-tab__text { position: relative; z-index: 1; }
+
+.region-tab__progress {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  transform-origin: left center;
+  background: rgba(250, 246, 239, 0.55);
+  animation: region-progress linear both;
+}
+
+@keyframes region-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* ---------------- Mobile "show all" ----------------
+   Mobile stacks one card per row; all ten ran to ~2,200px of scroll while the
+   region rotated underneath. Below sm the extra cards are dropped from the
+   flow until opened, then animate in on reveal. */
+.area-card--extra {
+  transition:
+    opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease;
+}
+
+@media (max-width: 639px) {
+  .area-grid:not(.is-expanded) .area-card--extra { display: none; }
+  .area-grid.is-expanded .area-card--extra {
+    animation: area-card-reveal 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: calc(min(var(--i), 8) * 45ms);
+  }
+}
+
+@keyframes area-card-reveal {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.area-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border-radius: 9999px;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #c9591f;
+  background: #fff;
+  box-shadow: inset 0 0 0 1px rgba(201, 89, 31, 0.28);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+
+.area-more:hover {
+  background: #c9591f;
+  color: #faf6ef;
+  box-shadow: inset 0 0 0 1px #c9591f;
+}
+
+/* animated nav underline — grows from the left, retracts to the right */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: 0.35rem;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #c9591f, #d97334);
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.32s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.nav-link:hover::after,
+.nav-link[data-active='true']::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+/* offset anchor scrolling so the fixed header doesn't cover section tops */
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+/* ----- Hero carousel motion ----- */
+
+/* staggered reveal of hero text on each slide change */
+.hero-reveal > * {
+  opacity: 0;
+  transform: translateY(26px);
+  animation: hero-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.hero-reveal > *:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.hero-reveal > *:nth-child(2) {
+  animation-delay: 0.18s;
+}
+.hero-reveal > *:nth-child(3) {
+  animation-delay: 0.31s;
+}
+.hero-reveal > *:nth-child(4) {
+  animation-delay: 0.44s;
+}
+@keyframes hero-rise {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* progress bar that fills over the autoplay duration */
+.hero-progress {
+  animation: hero-fill linear forwards;
+}
+@keyframes hero-fill {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* ----- Chat assistant ----- */
+.chat-launch-pulse::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: #c9591f;
+  z-index: -1;
+  animation: chat-ping 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+@keyframes chat-ping {
+  0% { transform: scale(1); opacity: 0.55; }
+  70%, 100% { transform: scale(1.9); opacity: 0; }
+}
+.chat-panel { animation: panel-in 0.34s cubic-bezier(0.22, 1, 0.36, 1) both; transform-origin: bottom right; }
+@keyframes panel-in {
+  from { opacity: 0; transform: translateY(16px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.chat-nudge { animation: nudge-in 0.4s cubic-bezier(0.22, 1, 0.36, 1) both; transform-origin: bottom right; }
+@keyframes nudge-in {
+  from { opacity: 0; transform: translateY(10px) scale(0.9); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.msg-in { animation: msg-in 0.32s cubic-bezier(0.22, 1, 0.36, 1) both; }
+@keyframes msg-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.typing-dot {
+  height: 7px; width: 7px; border-radius: 9999px; background: #c9591f;
+  display: inline-block; opacity: 0.4; animation: typing 1.2s infinite ease-in-out;
+}
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+@keyframes typing {
+  0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
+  30% { opacity: 1; transform: translateY(-4px); }
+}
+
+/* ----- Quote popup ----- */
+.popup-backdrop {
+  background: rgba(28, 26, 23, 0.55);
+  backdrop-filter: blur(4px);
+  animation: backdrop-in 0.3s ease both;
+}
+@keyframes backdrop-in { from { opacity: 0; } to { opacity: 1; } }
+.popup-card { animation: popup-in 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+@keyframes popup-in {
+  from { opacity: 0; transform: translateY(28px) scale(0.92); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.success-pop { animation: success-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+@keyframes success-pop {
+  0% { opacity: 0; transform: scale(0.4); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* 30s auto-close countdown bar */
+.quote-countdown { width: 100%; animation: quote-countdown linear forwards; }
+@keyframes quote-countdown { from { width: 100%; } to { width: 0%; } }
+
+/* honor reduced-motion: no ken burns, reveal, fill, or scroll cue */
+@media (prefers-reduced-motion: reduce) {
+  .animate-kenburns,
+  .animate-scroll-cue,
+  .hero-progress {
+    animation: none !important;
+  }
+  .hero-reveal > * {
+    opacity: 1;
+    transform: none;
+    animation: none !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  /* Service-area cards must stay visible: they default to opacity 0. */
+  .area-card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    transition-delay: 0ms;
+  }
+  .area-card::before { transition: none; }
+  .area-card:hover .area-card__pin { transform: none; }
+  /* Region swap: change content instantly, never animate the exchange. */
+  .region-swap__label { animation: none !important; }
+  /* Keep the underline drawn, just do not sweep it. */
+  .region-swap__label::after { animation: none !important; transform: scaleX(1); opacity: 1; }
+  .region-blurb { transition: none; }
+  .region-blurb.is-out { opacity: 1; transform: none; }
+  .region-tab { transition: none; }
+  .area-grid.is-swapping .area-card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    transition-delay: 0ms;
+  }
+  /* The countdown is not rendered under reduced motion, but guard it anyway
+     in case rotation is re-enabled. */
+  .region-tab__progress { animation: none !important; transform: scaleX(1); }
+  .area-card--extra { transition: none; }
+  .area-grid.is-expanded .area-card--extra { animation: none !important; }
+  .area-more { transition: none; }
+  /* Neutralize decorative hover transforms (image zoom, card lift). */
+  .group:hover img,
+  .hover\:-translate-y-1:hover,
+  .hover\:-translate-y-2:hover {
+    transform: none !important;
+  }
+  .chat-launch-pulse::before,
+  .chat-panel,
+  .chat-nudge,
+  .msg-in,
+  .typing-dot,
+  .popup-backdrop,
+  .popup-card,
+  .success-pop,
+  .quote-countdown {
+    animation: none !important;
+  }
+}

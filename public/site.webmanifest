@@ -1,0 +1,17 @@
+{
+  "name": "KN Builders",
+  "short_name": "KN Builders",
+  "description": "Award-winning residential & commercial construction company in Tambaram, Chennai.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#faf6ef",
+  "theme_color": "#2e2a26",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

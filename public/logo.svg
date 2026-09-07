@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="KN Builders monogram">
+  <title>KN Builders</title>
+  <!--
+    Interlocking K + N monogram, retraced from the original brand mark and
+    recoloured to the site palette:
+      charcoal   #2e2a26  frame + N   (was cool grey #969593)
+      terracotta #c9591f  K           (was bright red #da251c)
+    Geometry derived by sampling the source PNG row by row, so the letterforms
+    and their overlap match the original rather than being redrawn by eye.
+
+    This standalone file is the light-background version (favicon, OG, e-mail).
+    In-app the same geometry is drawn by the <Logo> component, which swaps the
+    charcoal for cream on dark headers and the footer.
+  -->
+
+  <!-- square frame -->
+  <path d="M0 0 h120 v120 H0 Z M3.6 3.6 V116.4 H116.4 V3.6 Z" fill="#2e2a26" fill-rule="evenodd" />
+
+  <!-- N -->
+  <g fill="#2e2a26">
+    <path d="M7.2 7.2 H26 L51 46 V54.5 L33.5 39.5 V51 L7.2 51 Z" />
+    <path d="M59.5 55.5 L90 83 V112.8 L62.5 84.5 Z" />
+    <rect x="90" y="7.2" width="23.3" height="105.6" />
+  </g>
+
+  <!-- K, drawn over the N -->
+  <g fill="#c9591f">
+    <path d="M84.9 16.5 V43.5 L36.5 90 L21.5 74.5 Z" />
+    <path d="M6.8 47 H30.5 V112.8 H6.8 Z" />
+    <path d="M30.5 65.5 L79.1 112.8 H53.1 L30.5 89.5 Z" />
+  </g>
+</svg>
